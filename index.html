@@ -30,22 +30,26 @@
         box-sizing: border-box;
       }
       body {
-        background-image: linear-gradient(to right, var(--tw-gradient-stops));
-        --tw-gradient-from: #6366f1;
-        --tw-gradient-to: rgb(99 102 241 / 0);
-        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-        --tw-gradient-to: rgb(168 85 247 / 0);
-        --tw-gradient-stops: var(--tw-gradient-from), #a855f7,
-          var(--tw-gradient-to);
-        --tw-gradient-to: #ec4899;
+        background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+        background-size: 300% 300%;
+        animation: color 12s ease-in-out infinite;
+      }
+      @keyframes color{
+        0%{
+          background-position: 0% 50%;
+        }
+        50%{
+          background-position: 50% 100%;
+        }
+        100%{
+          background-position: 0% 50%;
+        }
       }
       .container {
         margin: auto;
         display: grid;
         grid-template-columns: 0.33fr 1fr;
         width: 240mm;
-        height: 297mm;
-        overflow: auto;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
       }
 
@@ -69,6 +73,58 @@
         background-position: center-top;
         background-size: 90%;
       }
+      .coin {
+        font-size: 200px;
+        width: 0.1em;
+        height: 1em;
+        background: linear-gradient(#faa504, #141001);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        animation: rotate_4001510 7s infinite linear;
+        transform-style: preserve-3d;
+      }
+      .coin .side,
+      .coin:before,
+      .coin:after {
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+        border-radius: 50%;
+        right: -0.4em;
+        text-align: center;
+        line-height: 1;
+        transform: rotateY(-90deg);
+        -moz-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      /* .coin .tails,
+      .coin:after {
+        left: -0.4em;
+        transform: rotateY(90deg);
+      } */
+
+      .coin:before,
+      .coin:after {
+        background: linear-gradient(#faa504, #141001);
+        backface-visibility: hidden;
+        transform: rotateY(90deg);
+      }
+
+      .coin:after {
+        transform: rotateY(-90deg);
+      }
+
+      @keyframes rotate_4001510 {
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
       .container .card-one .contact-box {
         margin-top: 15px;
       }
@@ -225,7 +281,7 @@
     <div class="container">
       <!-- Card one -->
       <div class="card-one">
-        <div class="profile"></div>
+        <div class="profile coin"><span></span></div>
         <!-- Contact -->
         <div class="contact-box">
           <h2>Contact</h2>
@@ -241,12 +297,12 @@
           <br />
           <div class="">
             <i class="fab fa-github"></i>
-            <div class="text">Caknoooo</div>
+            <div class="text"><a href="https://github.com/Caknoooo" style="text-decoration: none; color: #141001;">Caknoooo</a></div>
           </div>
           <br />
           <div class="">
             <i class="fab fa-linkedin"></i>
-            <div class="text">M Naufal Badruttamam</div>
+            <div class="text"><a href="https://www.linkedin.com/in/m-naufal-badruttamam-526635217/" style="text-decoration: none; color: #141001;">M Naufal Badruttamam</a></div>
           </div>
           <br />
           <div class="">
@@ -409,11 +465,11 @@
           </div>
           <div class="desc">
             Hello everyone! My Name is M Naufal Badruttamam, I was born in
-            Surabaya on March 15, 2023. Currently, I studying at Sepuluh
+            Surabaya on March 15, 2003. Currently, I studying at Sepuluh
             Nopember Intitute of Technology. I learned programming in early
             September 2021. I'am Junior Programming, especially in the field
             Software Engineering, QA Engineer, Artificial Intelligence, and
-            Specials Backend Developer
+            Special of Backend Developer
           </div>
         </div>
 
